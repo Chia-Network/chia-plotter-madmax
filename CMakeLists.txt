@@ -7,7 +7,7 @@ execute_process(
   OUTPUT_VARIABLE GIT_COMMIT_HASH
   OUTPUT_STRIP_TRAILING_WHITESPACE
 )
-add_definitions("-DGIT_COMMIT_HASH=\"${GIT_COMMIT_HASH}\"")
+add_definitions("-DGIT_COMMIT_HASH=\"${GIT_COMMIT_HASH}-chia\"")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release"
