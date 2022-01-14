@@ -38,8 +38,8 @@ jobs:
         with:
           name: MSVC Release build
           path: |
-            ${{github.workspace}}/build/chia_plot.exe
-            ${{github.workspace}}/build/chia_plot_k34.exe
+            ${{github.workspace}}/build/chinilla_plot.exe
+            ${{github.workspace}}/build/chinilla_plot_k34.exe
 
   upload-release-artifacts:
     runs-on: ubuntu-latest
@@ -71,14 +71,14 @@ jobs:
             -X POST \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chia_plot.exe)" \
-            --data-binary @${{github.workspace}}/build/chia_plot.exe \
-            https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chia_plot-${{ steps.tag-name.outputs.TAG_NAME }}.exe
+            -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chinilla_plot.exe)" \
+            --data-binary @${{github.workspace}}/build/chinilla_plot.exe \
+            https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chinilla_plot-${{ steps.tag-name.outputs.TAG_NAME }}.exe
 
           curl \
             -X POST \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chia_plot_k34.exe)" \
-            --data-binary @${{github.workspace}}/build/chia_plot_k34.exe \
-            https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chia_plot_k34-${{ steps.tag-name.outputs.TAG_NAME }}.exe
+            -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chinilla_plot_k34.exe)" \
+            --data-binary @${{github.workspace}}/build/chinilla_plot_k34.exe \
+            https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chinilla_plot_k34-${{ steps.tag-name.outputs.TAG_NAME }}.exe

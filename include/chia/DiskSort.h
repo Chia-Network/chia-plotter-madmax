@@ -5,11 +5,11 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_DISKSORT_H_
-#define INCLUDE_CHIA_DISKSORT_H_
+#ifndef INCLUDE_CHINILLA_DISKSORT_H_
+#define INCLUDE_CHINILLA_DISKSORT_H_
 
-#include <chia/buffer.h>
-#include <chia/ThreadPool.h>
+#include <chinilla/buffer.h>
+#include <chinilla/ThreadPool.h>
 
 #include <vector>
 #include <string>
@@ -99,4 +99,4 @@ private:
 
 
 
-#endif /* INCLUDE_CHIA_DISKSORT_H_ */
+#endif /* INCLUDE_CHINILLA_DISKSORT_H_ */

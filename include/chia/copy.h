@@ -5,8 +5,8 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_COPY_H_
-#define INCLUDE_CHIA_COPY_H_
+#ifndef INCLUDE_CHINILLA_COPY_H_
+#define INCLUDE_CHINILLA_COPY_H_
 
 #include <string>
 #include <vector>
@@ -21,8 +21,8 @@
 #include <filesystem>
 #endif
 
-#include <chia/settings.h>
-#include <chia/stdiox.hpp>
+#include <chinilla/settings.h>
+#include <chinilla/stdiox.hpp>
 
 inline
 uint64_t copy_file(const std::string& src_path, const std::string& dst_path)
@@ -83,4 +83,4 @@ uint64_t final_copy(const std::string& src_path, const std::string& dst_path)
 }
 
 
-#endif /* INCLUDE_CHIA_COPY_H_ */
+#endif /* INCLUDE_CHINILLA_COPY_H_ */

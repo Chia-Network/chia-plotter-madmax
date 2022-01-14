@@ -5,10 +5,10 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_PHASE4_H_
-#define INCLUDE_CHIA_PHASE4_H_
+#ifndef INCLUDE_CHINILLA_PHASE4_H_
+#define INCLUDE_CHINILLA_PHASE4_H_
 
-#include <chia/phase3.h>
+#include <chinilla/phase3.h>
 
 
 namespace phase4 {
@@ -22,4 +22,4 @@ struct output_t {
 
 } // phase4
 
-#endif /* INCLUDE_CHIA_PHASE4_H_ */
+#endif /* INCLUDE_CHINILLA_PHASE4_H_ */

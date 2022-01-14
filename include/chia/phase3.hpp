@@ -5,13 +5,13 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_PHASE3_HPP_
-#define INCLUDE_CHIA_PHASE3_HPP_
+#ifndef INCLUDE_CHINILLA_PHASE3_HPP_
+#define INCLUDE_CHINILLA_PHASE3_HPP_
 
-#include <chia/chia.h>
-#include <chia/phase3.h>
-#include <chia/encoding.hpp>
-#include <chia/DiskTable.h>
+#include <chinilla/chinilla.h>
+#include <chinilla/phase3.h>
+#include <chinilla/encoding.hpp>
+#include <chinilla/DiskTable.h>
 
 #include <list>
 
@@ -571,4 +571,4 @@ void compute(	phase2::output_t& input, output_t& out,
 
 } // phase3
 
-#endif /* INCLUDE_CHIA_PHASE3_HPP_ */
+#endif /* INCLUDE_CHINILLA_PHASE3_HPP_ */

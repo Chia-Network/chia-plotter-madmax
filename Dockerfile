@@ -25,7 +25,7 @@ RUN apk --no-cache add \
     gmp-dev \
     libsodium-dev
 
-COPY --from=compiler /root/build /usr/lib/chia-plotter
-RUN ln -s /usr/lib/chia-plotter/chia_plot /usr/bin/chia_plot
+COPY --from=compiler /root/build /usr/lib/chinilla-plotter
+RUN ln -s /usr/lib/chinilla-plotter/chinilla_plot /usr/bin/chinilla_plot
 
-ENTRYPOINT ["/usr/bin/chia_plot"]
+ENTRYPOINT ["/usr/bin/chinilla_plot"]

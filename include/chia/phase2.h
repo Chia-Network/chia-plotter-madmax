@@ -5,13 +5,13 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_PHASE2_H_
-#define INCLUDE_CHIA_PHASE2_H_
+#ifndef INCLUDE_CHINILLA_PHASE2_H_
+#define INCLUDE_CHINILLA_PHASE2_H_
 
-#include <chia/chia.h>
-#include <chia/phase1.h>
-#include <chia/DiskSort.h>
-#include <chia/bitfield.hpp>
+#include <chinilla/chinilla.h>
+#include <chinilla/phase1.h>
+#include <chinilla/DiskSort.h>
+#include <chinilla/bitfield.hpp>
 
 #include <array>
 #include <vector>
@@ -33,7 +33,7 @@ struct entry_x {
 		pos = entry.pos;
 		off = entry.off;
 	}
-#ifdef CHIA_K34
+#ifdef CHINILLA_K34
 	size_t read(const uint8_t* buf) {
 		memcpy(&key, buf, 5);
 		key &= 0x7FFFFFFFF;				// 35 bit
@@ -110,4 +110,4 @@ struct output_t {
 
 } // phase2
 
-#endif /* INCLUDE_CHIA_PHASE2_H_ */
+#endif /* INCLUDE_CHINILLA_PHASE2_H_ */

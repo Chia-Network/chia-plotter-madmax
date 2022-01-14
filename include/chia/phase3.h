@@ -5,10 +5,10 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_PHASE3_H_
-#define INCLUDE_CHIA_PHASE3_H_
+#ifndef INCLUDE_CHINILLA_PHASE3_H_
+#define INCLUDE_CHINILLA_PHASE3_H_
 
-#include <chia/phase2.h>
+#include <chinilla/phase2.h>
 
 
 namespace phase3 {
@@ -22,7 +22,7 @@ struct entry_lp {
 	uintlp_t point;		// 63-bit (line_point) / 67 bit
 	uintkx_t key;		// 32-bit (sort_key)   / 35 bit
 	
-#ifdef CHIA_K34
+#ifdef CHINILLA_K34
 	static constexpr size_t disk_size = 13;
 
 	size_t read(const uint8_t* buf) {
@@ -59,7 +59,7 @@ struct entry_np {
 	uintkx_t key;		// 32-bit (sort_key) / 35 bit
 	uintkx_t pos;		// 32-bit (new_pos)  / 35 bit
 	
-#ifdef CHIA_K34
+#ifdef CHINILLA_K34
 	static constexpr size_t disk_size = 9;
 
 	size_t read(const uint8_t* buf) {
@@ -142,4 +142,4 @@ struct output_t {
 
 } // phase3
 
-#endif /* INCLUDE_CHIA_PHASE3_H_ */
+#endif /* INCLUDE_CHINILLA_PHASE3_H_ */

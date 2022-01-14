@@ -1,4 +1,4 @@
-// Copyright 2018 Chia Network Inc
+// Copyright 2018 Chinilla Network Inc
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 #include "./util.hpp"
 #include "exceptions.hpp"
 
-namespace chia {
+namespace chinilla {
 
 // 64 * 2^16. 2^17 values, each value can store 64 bits.
 #define kMaxSizeBits 8388608

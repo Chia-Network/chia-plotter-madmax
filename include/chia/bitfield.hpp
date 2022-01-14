@@ -1,4 +1,4 @@
-// Copyright 2020 Chia Network Inc
+// Copyright 2020 Chinilla Network Inc
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef INCLUDE_CHIA_BITFIELD_H_
-#define INCLUDE_CHIA_BITFIELD_H_
+#ifndef INCLUDE_CHINILLA_BITFIELD_H_
+#define INCLUDE_CHINILLA_BITFIELD_H_
 
-#include <chia/util.hpp>
+#include <chinilla/util.hpp>
 
 #include <memory>
 #include <atomic>
@@ -105,4 +105,4 @@ private:
     int64_t size_;
 };
 
-#endif // INCLUDE_CHIA_BITFIELD_H_
+#endif // INCLUDE_CHINILLA_BITFIELD_H_

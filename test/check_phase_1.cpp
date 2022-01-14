@@ -5,9 +5,9 @@
  *      Author: mad
  */
 
-#include <chia/phase1.h>
+#include <chinilla/phase1.h>
 
-#include "chia_ref/verifier.hpp"
+#include "chinilla_ref/verifier.hpp"
 
 using namespace phase1;
 
@@ -93,21 +93,21 @@ int main()
 //		std::cout << " (" << proof.size() << " x 32-bit)" << std::endl;
 		
 		uint8_t challenge[32] = {};
-		chia::Bits(y, 32).ToBytes(challenge);
+		chinilla::Bits(y, 32).ToBytes(challenge);
 		
 		uint8_t proof_bytes[256] = {};
 		{
 			size_t i = 0;
 			for(auto x : proof) {
-				chia::Bits(x, 32).ToBytes(proof_bytes + (4 * i++));
+				chinilla::Bits(x, 32).ToBytes(proof_bytes + (4 * i++));
 			}
 		}
 		{
-			chia::LargeBits bits(proof_bytes, sizeof(proof_bytes), sizeof(proof_bytes) * 8);
+			chinilla::LargeBits bits(proof_bytes, sizeof(proof_bytes), sizeof(proof_bytes) * 8);
 //			std::cout << "proof = " << bits.ToString() << std::endl;
 		}
 		
-		chia::Verifier verify;
+		chinilla::Verifier verify;
 		const auto qual = verify.ValidateProof(id, 32, challenge, proof_bytes, sizeof(proof_bytes));
 		std::cout << "quality = " << qual.ToString() << std::endl;
 	}

@@ -1,16 +1,16 @@
 /*
- * chia_plot.cpp
+ * chinilla_plot.cpp
  *
  *  Created on: Jun 5, 2021
  *      Author: mad
  */
 
-#include <chia/phase1.hpp>
-#include <chia/phase2.hpp>
-#include <chia/phase3.hpp>
-#include <chia/phase4.hpp>
-#include <chia/util.hpp>
-#include <chia/copy.h>
+#include <chinilla/phase1.hpp>
+#include <chinilla/phase2.hpp>
+#include <chinilla/phase3.hpp>
+#include <chinilla/phase4.hpp>
+#include <chinilla/util.hpp>
+#include <chinilla/copy.h>
 
 #include <bls.hpp>
 #include <sodium.h>
@@ -208,14 +208,14 @@ phase4::output_t create_plot(	const int k,
 int _main(int argc, char** argv)
 {
 
-	cxxopts::Options options("chia_plot",
-		"Multi-threaded pipelined Chia k" + std::to_string(KMAX) + " plotter"
+	cxxopts::Options options("chinilla_plot",
+		"Multi-threaded pipelined Chinilla k" + std::to_string(KMAX) + " plotter"
 #ifdef GIT_COMMIT_HASH
 		" - " GIT_COMMIT_HASH
 #endif
 		"\n\n"
-		"For <poolkey> and <farmerkey> see output of `chia keys show`.\n"
-		"To plot for pools, specify <contract> address via -c instead of <poolkey>, see `chia plotnft show`.\n"
+		"For <poolkey> and <farmerkey> see output of `chinilla keys show`.\n"
+		"To plot for pools, specify <contract> address via -c instead of <poolkey>, see `chinilla plotnft show`.\n"
 		"<tmpdir> needs about 220 GiB space, it will handle about 25% of all writes. (Examples: './', '/mnt/tmp/')\n"
 		"<tmpdir2> needs about 110 GiB space and ideally is a RAM drive, it will handle about 75% of all writes.\n"
 		"Combined (tmpdir + tmpdir2) peak disk usage is less than 256 GiB.\n"
@@ -230,7 +230,7 @@ int _main(int argc, char** argv)
 	std::string tmp_dir2;
 	std::string final_dir;
 	int k = 32;
-	int port = 8444;			// 8444 = chia, 9699 = chives
+	int port = 8444;			// 8444 = chinilla, 9699 = chives
 	int num_plots = 1;
 	int num_threads = 4;
 	int num_buckets = 256;
@@ -278,15 +278,15 @@ int _main(int argc, char** argv)
 		return -2;
 	}
 	if(contract_addr_str.empty() && pool_key_str.empty()) {
-		std::cout << "Pool Public Key (for solo farming) or Pool Contract Address (for pool farming) needs to be specified via -p or -c, see `chia_plot --help`." << std::endl;
+		std::cout << "Pool Public Key (for solo farming) or Pool Contract Address (for pool farming) needs to be specified via -p or -c, see `chinilla_plot --help`." << std::endl;
 		return -2;
 	}
 	if(!contract_addr_str.empty() && !pool_key_str.empty()) {
-		std::cout << "Choose either Pool Public Key (for solo farming) or Pool Contract Address (for pool farming), see `chia_plot --help`." << std::endl;
+		std::cout << "Choose either Pool Public Key (for solo farming) or Pool Contract Address (for pool farming), see `chinilla_plot --help`." << std::endl;
 		return -2;
 	}
 	if(farmer_key_str.empty()) {
-		std::cout << "Farmer Public Key (48 bytes) needs to be specified via -f, see `chia keys show`." << std::endl;
+		std::cout << "Farmer Public Key (48 bytes) needs to be specified via -f, see `chinilla keys show`." << std::endl;
 		return -2;
 	}
 	if(tmp_dir.empty()) {
@@ -312,7 +312,7 @@ int _main(int argc, char** argv)
 		pool_key = hex_to_bytes(pool_key_str);
 		if(pool_key.size() != bls::G1Element::SIZE) {
 			std::cout << "Invalid poolkey: " << bls::Util::HexStr(pool_key) << ", '" << pool_key_str
-				<< "' (needs to be " << bls::G1Element::SIZE << " bytes, see `chia keys show`)" << std::endl;
+				<< "' (needs to be " << bls::G1Element::SIZE << " bytes, see `chinilla keys show`)" << std::endl;
 			return -2;
 		}
 	}
@@ -326,13 +326,13 @@ int _main(int argc, char** argv)
 		catch(std::exception& ex) {
 			std::cout << "Invalid contract (address): 0x"
 					<< bls::Util::HexStr(puzzle_hash) << ", '" << contract_addr_str
-					<< "' (" << ex.what() << ", see `chia plotnft show`)" << std::endl;
+					<< "' (" << ex.what() << ", see `chinilla plotnft show`)" << std::endl;
 			return -2;
 		}
 	}
 	if(farmer_key.size() != bls::G1Element::SIZE) {
 		std::cout << "Invalid farmerkey: " << bls::Util::HexStr(farmer_key) << ", '" << farmer_key_str
-			<< "' (needs to be " << bls::G1Element::SIZE << " bytes, see `chia keys show`)" << std::endl;
+			<< "' (needs to be " << bls::G1Element::SIZE << " bytes, see `chinilla keys show`)" << std::endl;
 		return -2;
 	}
 	if(!tmp_dir.empty() && tmp_dir.find_last_of("/\\") != tmp_dir.size() - 1) {
@@ -360,7 +360,7 @@ int _main(int argc, char** argv)
 		return -2;
 	}
 	{
-		const std::string path = tmp_dir + ".chia_plot_tmp";
+		const std::string path = tmp_dir + ".chinilla_plot_tmp";
 		if(auto file = FOPEN(path.c_str(), "wb")) {
 			fclose(file);
 			remove(path.c_str());
@@ -370,7 +370,7 @@ int _main(int argc, char** argv)
 		}
 	}
 	{
-		const std::string path = tmp_dir2 + ".chia_plot_tmp2";
+		const std::string path = tmp_dir2 + ".chinilla_plot_tmp2";
 		if(auto file = FOPEN(path.c_str(), "wb")) {
 			fclose(file);
 			remove(path.c_str());
@@ -380,7 +380,7 @@ int _main(int argc, char** argv)
 		}
 	}
 	{
-		const std::string path = final_dir + ".chia_plot_final";
+		const std::string path = final_dir + ".chinilla_plot_final";
 		if(auto file = FOPEN(path.c_str(), "wb")) {
 			fclose(file);
 			remove(path.c_str());
@@ -409,7 +409,7 @@ int _main(int argc, char** argv)
 		// check that we can open required amount of files
 		std::vector<std::pair<FILE*, std::string>> files;
 		for(int i = 0; i < num_files_max; ++i) {
-			const std::string path = tmp_dir + ".chia_plot_tmp." + std::to_string(i);
+			const std::string path = tmp_dir + ".chinilla_plot_tmp." + std::to_string(i);
 			if(auto file = FOPEN(path.c_str(), "wb")) {
 				files.emplace_back(file, path);
 			} else {
@@ -433,7 +433,7 @@ int _main(int argc, char** argv)
 		std::cout << std::endl;
     	std::cout << "****************************************************************************************" << std::endl;
     	std::cout << "**   WARNING ! WARNING ! WARNING ! WARNING ! WARNING ! WARNING ! WARNING ! WARNING    **" << std::endl;
-    	std::cout << "**                   !! k < 32 is not supported on chia network !!                    **" << std::endl;
+    	std::cout << "**                   !! k < 32 is not supported on chinilla network !!                    **" << std::endl;
     	std::cout << "**                  (If you want to plot for chives specify -x 9699)                  **" << std::endl;
     	std::cout << "****************************************************************************************" << std::endl;
     	std::cout << std::endl;
@@ -447,7 +447,7 @@ int _main(int argc, char** argv)
     	std::cout << std::endl;
 	}
 
-	std::cout << "Multi-threaded pipelined Chia k" + std::to_string(KMAX) + " plotter";
+	std::cout << "Multi-threaded pipelined Chinilla k" + std::to_string(KMAX) + " plotter";
 	#ifdef GIT_COMMIT_HASH
 		std::cout << " - " << GIT_COMMIT_HASH;
 	#endif	

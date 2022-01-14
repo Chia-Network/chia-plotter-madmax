@@ -5,10 +5,10 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_BUFFER_H_
-#define INCLUDE_CHIA_BUFFER_H_
+#ifndef INCLUDE_CHINILLA_BUFFER_H_
+#define INCLUDE_CHINILLA_BUFFER_H_
 
-#include <chia/settings.h>
+#include <chinilla/settings.h>
 
 
 template<typename T>
@@ -42,4 +42,4 @@ struct write_buffer_t : byte_buffer_t<T> {
 };
 
 
-#endif /* INCLUDE_CHIA_BUFFER_H_ */
+#endif /* INCLUDE_CHINILLA_BUFFER_H_ */

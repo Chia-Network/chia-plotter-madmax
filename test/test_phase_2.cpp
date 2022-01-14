@@ -5,8 +5,8 @@
  *      Author: mad
  */
 
-#include <chia/phase2.hpp>
-#include <chia/DiskSort.hpp>
+#include <chinilla/phase2.hpp>
+#include <chinilla/DiskSort.hpp>
 
 #include <iostream>
 

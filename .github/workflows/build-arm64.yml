@@ -29,8 +29,8 @@ jobs:
       with:
         name: Debug build
         path: |
-          ${{github.workspace}}/build/chia_plot
-          ${{github.workspace}}/build/chia_plot_k34
+          ${{github.workspace}}/build/chinilla_plot
+          ${{github.workspace}}/build/chinilla_plot_k34
 
   build-release:
     runs-on: [ARM64]
@@ -49,8 +49,8 @@ jobs:
       with:
         name: Release build
         path: |
-          ${{github.workspace}}/build/chia_plot
-          ${{github.workspace}}/build/chia_plot_k34
+          ${{github.workspace}}/build/chinilla_plot
+          ${{github.workspace}}/build/chinilla_plot_k34
 
     - name: Get tag name
       if: startsWith(github.ref, 'refs/tags/')
@@ -73,14 +73,14 @@ jobs:
           -X POST \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chia_plot)" \
-          --data-binary @${{github.workspace}}/build/chia_plot \
-          https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chia_plot-${{ steps.tag-name.outputs.TAG_NAME }}-arm64
+          -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chinilla_plot)" \
+          --data-binary @${{github.workspace}}/build/chinilla_plot \
+          https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chinilla_plot-${{ steps.tag-name.outputs.TAG_NAME }}-arm64
 
         curl \
           -X POST \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chia_plot_k34)" \
-          --data-binary @${{github.workspace}}/build/chia_plot_k34 \
-          https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chia_plot_k34-${{ steps.tag-name.outputs.TAG_NAME }}-arm64
+          -H "Content-Type: $(file -b --mime-type ${{github.workspace}}/build/chinilla_plot_k34)" \
+          --data-binary @${{github.workspace}}/build/chinilla_plot_k34 \
+          https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.release-id.outputs.RELEASE_ID }}/assets?name=chinilla_plot_k34-${{ steps.tag-name.outputs.TAG_NAME }}-arm64

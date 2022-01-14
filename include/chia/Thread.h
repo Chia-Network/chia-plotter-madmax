@@ -5,8 +5,8 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_THREAD_H_
-#define INCLUDE_CHIA_THREAD_H_
+#ifndef INCLUDE_CHINILLA_THREAD_H_
+#define INCLUDE_CHINILLA_THREAD_H_
 
 #include <mutex>
 #include <thread>
@@ -150,4 +150,4 @@ private:
 };
 
 
-#endif /* INCLUDE_CHIA_THREAD_H_ */
+#endif /* INCLUDE_CHINILLA_THREAD_H_ */

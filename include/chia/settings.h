@@ -5,8 +5,8 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_SETTINGS_H_
-#define INCLUDE_CHIA_SETTINGS_H_
+#ifndef INCLUDE_CHINILLA_SETTINGS_H_
+#define INCLUDE_CHINILLA_SETTINGS_H_
 
 #include <cstdint>
 #include <cstddef>
@@ -29,4 +29,4 @@ namespace phase2 {
 }
 
 
-#endif /* INCLUDE_CHIA_SETTINGS_H_ */
+#endif /* INCLUDE_CHINILLA_SETTINGS_H_ */

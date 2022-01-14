@@ -1,6 +1,6 @@
 
-#ifndef INCLUDE_CHIA_STDIOX_HPP_
-#define INCLUDE_CHIA_STDIOX_HPP_
+#ifndef INCLUDE_CHINILLA_STDIOX_HPP_
+#define INCLUDE_CHINILLA_STDIOX_HPP_
 #include <stdio.h>
 
 #ifdef _WIN32
@@ -25,4 +25,4 @@ inline FILE* _wfopenX(char const* _FileName, char const* _Mode) {
 #define FSEEK(...) fseek(__VA_ARGS__)
 #endif
 
-#endif  // INCLUDE_CHIA_STDIOX_HPP_
+#endif  // INCLUDE_CHINILLA_STDIOX_HPP_

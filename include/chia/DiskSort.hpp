@@ -5,11 +5,11 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_DISKSORT_HPP_
-#define INCLUDE_CHIA_DISKSORT_HPP_
+#ifndef INCLUDE_CHINILLA_DISKSORT_HPP_
+#define INCLUDE_CHINILLA_DISKSORT_HPP_
 
-#include <chia/DiskSort.h>
-#include <chia/util.hpp>
+#include <chinilla/DiskSort.h>
+#include <chinilla/util.hpp>
 
 #include <map>
 #include <algorithm>
@@ -256,4 +256,4 @@ void DiskSort<T, Key>::close()
 }
 
 
-#endif /* INCLUDE_CHIA_DISKSORT_HPP_ */
+#endif /* INCLUDE_CHINILLA_DISKSORT_HPP_ */

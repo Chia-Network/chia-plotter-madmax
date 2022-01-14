@@ -5,7 +5,7 @@
  *      Author: mad
  */
 
-#include <chia/settings.h>
+#include <chinilla/settings.h>
 
 
 size_t g_read_chunk_size = 65536;

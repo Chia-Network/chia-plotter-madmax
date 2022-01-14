@@ -1,6 +1,6 @@
-# chia-plotter (pipelined multi-threaded)
+# chinilla-plotter (pipelined multi-threaded)
 
-This is a new implementation of a chia plotter which is designed as a processing pipeline,
+This is a new implementation of a chinilla plotter which is designed as a processing pipeline,
 similar to how GPUs work, only the "cores" are normal software CPU threads.
 
 As a result this plotter is able to fully max out any storage device's bandwidth,
@@ -11,8 +11,8 @@ simply by increasing the number of "cores", ie. threads.
 Join the Discord for support: https://discord.gg/pQwkebKnPB
 
 ```
-For <poolkey> and <farmerkey> see output of `chia keys show`.
-To plot for pools, specify <contract> address via -c instead of <poolkey>, see `chia plotnft show`.
+For <poolkey> and <farmerkey> see output of `chinilla keys show`.
+To plot for pools, specify <contract> address via -c instead of <poolkey>, see `chinilla plotnft show`.
 <tmpdir> needs about 220 GiB space, it will handle about 25% of all writes. (Examples: './', '/mnt/tmp/')
 <tmpdir2> needs about 110 GiB space and ideally is a RAM drive, it will handle about 75% of all writes.
 Combined (tmpdir + tmpdir2) peak disk usage is less than 256 GiB.
@@ -20,7 +20,7 @@ In case of <count> != 1, you may press Ctrl-C for graceful termination after cur
 or double press Ctrl-C to terminate immediately.
 
 Usage:
-  chia_plot [OPTION...]
+  chinilla_plot [OPTION...]
 
   -k, --size arg       K size (default = 32, k <= 32)
   -x, --port arg       Network port (default = 8444, chives = 9699)
@@ -78,8 +78,8 @@ On a dual Xeon® E5-2650v2<span>@</span>2.60GHz R720 with 256GB RAM and a 3x800G
   ```
   Number of Threads: 16
   Number of Buckets: 2^8 (256)
-  Working Directory:   /mnt/tmp3/chia/tmp/ 
-  Working Directory 2: /mnt/tmp3/chia/tmp/ram/
+  Working Directory:   /mnt/tmp3/chinilla/tmp/ 
+  Working Directory 2: /mnt/tmp3/chinilla/tmp/ram/
   [P1] Table 1 took 17.2488 sec
   [P1] Table 2 took 145.011 sec, found 4294911201 matches
   [P1] Table 3 took 170.86 sec, found 4294940789 matches
@@ -127,18 +127,18 @@ On a dual Xeon® E5-2650v2<span>@</span>2.60GHz R720 with 256GB RAM and a 3x800G
 
 ## How to Verify
 
-To make sure the plots are valid you can use the `ProofOfSpace` tool from [chiapos](https://github.com/Chia-Network/chiapos):
+To make sure the plots are valid you can use the `ProofOfSpace` tool from [chinillapos](https://github.com/Chinilla-Network/chinillapos):
 
 ```bash
-git clone https://github.com/Chia-Network/chiapos.git
-cd chiapos && mkdir build && cd build && cmake .. && make -j8
+git clone https://github.com/Chinilla-Network/chinillapos.git
+cd chinillapos && mkdir build && cd build && cmake .. && make -j8
 ./ProofOfSpace check -f plot-k32-???.plot [num_iterations]
 ```
 
 ## How to update to latest version
 
 ```bash
-cd chia-plotter
+cd chinilla-plotter
 git checkout master
 git pull
 ./make_devel.sh
@@ -162,7 +162,7 @@ keeping most of the load off the CPUs.
   <summary>Windows</summary>
   
   Binaries built by [stotiks](https://github.com/stotiks) can be found here:
-https://github.com/stotiks/chia-plotter/releases
+https://github.com/stotiks/chinilla-plotter/releases
 
 </details>
 
@@ -176,11 +176,11 @@ https://github.com/stotiks/chia-plotter/releases
   Then, clone and compile the project:
   ```bash
   # Checkout the source and install
-  git clone https://github.com/Chia-Network/chia-plotter-madmax.git
-  cd chia-plotter
+  git clone https://github.com/Chinilla-Network/chinilla-plotter-madmax.git
+  cd chinilla-plotter
 
   ./make_devel.sh
-  ./build/chia_plot --help
+  ./build/chinilla_plot --help
   ```
 </details>
 
@@ -188,8 +188,8 @@ https://github.com/stotiks/chia-plotter/releases
   <summary>CentOS 7</summary>
   
   ```bash
-  git clone https://github.com/Chia-Network/chia-plotter-madmax.git
-  cd chia-plotter
+  git clone https://github.com/Chinilla-Network/chinilla-plotter-madmax.git
+  cd chinilla-plotter
 
   sudo yum install epel-release -y
   sudo yum install cmake3 -y
@@ -202,7 +202,7 @@ https://github.com/stotiks/chia-plotter/releases
   # Start using software collections:
   scl enable devtoolset-7 bash
   ./make_devel.sh
-  ./build/chia_plot --help
+  ./build/chinilla_plot --help
   ```
 </details>
 
@@ -217,10 +217,10 @@ https://github.com/stotiks/chia-plotter/releases
 
   # Checkout the source and install
   cd ~/
-  git clone https://github.com/Chia-Network/chia-plotter-madmax.git
-  cd ~/chia-plotter
+  git clone https://github.com/Chinilla-Network/chinilla-plotter-madmax.git
+  cd ~/chinilla-plotter
   ./make_devel.sh
-  ./build/chia_plot --help
+  ./build/chinilla_plot --help
   ```
 </details>
 
@@ -230,11 +230,11 @@ https://github.com/stotiks/chia-plotter/releases
   ```bash
   sudo apt install -y cmake g++ git build-essential
   # Checkout the source and install
-  git clone https://github.com/Chia-Network/chia-plotter-madmax.git
-  cd chia-plotter
+  git clone https://github.com/Chinilla-Network/chinilla-plotter-madmax.git
+  cd chinilla-plotter
 
   ./make_devel.sh
-  ./build/chia_plot --help
+  ./build/chinilla_plot --help
   ```
 
   The binaries will end up in `build/`, you can copy them elsewhere freely (on the same machine, or similar OS).
@@ -250,11 +250,11 @@ https://github.com/stotiks/chia-plotter/releases
   sudo apt install -t buster-backports cmake
   sudo apt install -y g++ git
   # Checkout the source and install
-  git clone https://github.com/Chia-Network/chia-plotter-madmax.git
-  cd chia-plotter
+  git clone https://github.com/Chinilla-Network/chinilla-plotter-madmax.git
+  cd chinilla-plotter
 
   ./make_devel.sh
-  ./build/chia_plot --help
+  ./build/chinilla_plot --help
   ```
   The binaries will end up in `build/`, you can copy them elsewhere freely (on the same machine, or similar OS).
 </details>
@@ -267,13 +267,13 @@ https://github.com/stotiks/chia-plotter/releases
   # Download Xcode Command Line Tools (skip if you already have Xcode)
   xcode-select --install
 
-  # Now download chia-plotter's dependencies
+  # Now download chinilla-plotter's dependencies
   brew install cmake git
   brew link cmake
-  git clone https://github.com/Chia-Network/chia-plotter-madmax.git
-  cd chia-plotter
+  git clone https://github.com/Chinilla-Network/chinilla-plotter-madmax.git
+  cd chinilla-plotter
   ./make_devel.sh
-  ./build/chia_plot --help
+  ./build/chinilla_plot --help
   ```
 
   If a maximum open file limit error occurs (as default OS setting is 256, which is too low for default bucket size of `256`), run this before starting the plotter
@@ -286,7 +286,7 @@ https://github.com/stotiks/chia-plotter/releases
 <details>
   <summary>Running in a Docker container</summary>
 
-  In some setups and scenarios, it could be useful to run your plotter inside a Docker container. This could be potentially useful while running `chia-plotter` in Windows.
+  In some setups and scenarios, it could be useful to run your plotter inside a Docker container. This could be potentially useful while running `chinilla-plotter` in Windows.
 
   To do so, [install Docker](https://docs.docker.com/get-docker/) on your computer and them run the following command:
 
@@ -294,14 +294,14 @@ https://github.com/stotiks/chia-plotter/releases
   docker run \
     -v <path-to-your-tmp-dir>:/mnt/harvester \
     -v <path-to-your-final-dir>:/mnt/farm \
-    odelucca/chia-plotter \
+    odelucca/chinilla-plotter \
       -t /mnt/harvester/ \
       -d /mnt/farm/ \
       -p <pool-key> \
       -f <farm-key> \
       -r <number-of-CPU-cores>
   ```
-  > 💡 You can provide any of the plotter arguments after the image name (`odelucca/chia-plotter`)
+  > 💡 You can provide any of the plotter arguments after the image name (`odelucca/chinilla-plotter`)
 
   In a Linux benchmark, we were able to find that running in Docker is only 5% slower than running in native OS.
 
@@ -320,7 +320,7 @@ https://github.com/stotiks/chia-plotter/releases
     -v <path-to-your-final-dir>:/mnt/farm \
     -m 8G \
     --cpus 8 \
-    odelucca/chia-plotter \
+    odelucca/chinilla-plotter \
       -t /mnt/harvester/ \
       -d /mnt/farm/ \
       -p <pool-key> \

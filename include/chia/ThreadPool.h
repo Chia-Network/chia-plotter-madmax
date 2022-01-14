@@ -5,10 +5,10 @@
  *      Author: mad
  */
 
-#ifndef INCLUDE_CHIA_THREADPOOL_H_
-#define INCLUDE_CHIA_THREADPOOL_H_
+#ifndef INCLUDE_CHINILLA_THREADPOOL_H_
+#define INCLUDE_CHINILLA_THREADPOOL_H_
 
-#include <chia/Thread.h>
+#include <chinilla/Thread.h>
 
 #include <vector>
 #include <memory>
@@ -134,4 +134,4 @@ private:
 
 
 
-#endif /* INCLUDE_CHIA_THREADPOOL_H_ */
+#endif /* INCLUDE_CHINILLA_THREADPOOL_H_ */
