@@ -1,6 +1,6 @@
 # Compiler image
 # -------------------------------------------------------------------------------------------------
-FROM alpine:3.16.2 AS compiler
+FROM alpine:3.16 AS compiler
 
 WORKDIR /root
 
@@ -17,7 +17,7 @@ RUN /bin/sh ./make_devel.sh
 
 # Runtime image
 # -------------------------------------------------------------------------------------------------
-FROM alpine:3.16.2 AS runtime
+FROM alpine:3.16 AS runtime
 
 WORKDIR /root
 
