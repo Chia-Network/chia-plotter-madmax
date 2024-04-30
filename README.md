@@ -341,3 +341,4 @@ https://github.com/stotiks/chia-plotter/releases
 - Needs at least cmake 3.14 (because of bls-signatures)
 
 [How to install latest cmake on Ubuntu 18.04](https://askubuntu.com/questions/1203635/installing-latest-cmake-on-ubuntu-18-04-3-lts-run-via-wsl-openssl-error)
+ 
